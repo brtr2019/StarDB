@@ -7,11 +7,18 @@ export default class RandomPlanet extends Component {
 	swapiService = new SwapiService();
 	state = {
 				planet: {},
-				loading:true
+				loading:true,
+				error:false
 	};
 	constructor(){
 		super();
 		this.updatePlanet();
+	}
+
+	onError=(err)=>{
+		this.setState({
+			error:true
+		})
 	}
 
 	onPlanetLoaded=(planet)=>{
@@ -25,6 +32,7 @@ export default class RandomPlanet extends Component {
 		const id=Math.floor(Math.random()*25) + 2;
 		this.swapiService.getPlanet(id)
 		.then(this.onPlanetLoaded)
+		.catch(this.onError)
 	}
 
   render() {
