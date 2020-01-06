@@ -7,13 +7,13 @@ export default class ErrorButton extends Component{
     }
 
     render(){
-        console.log('render');
+        //console.log('render');
         if(this.state.renderError){
             this.foo.bar=0;
         }
 
         return(
-            <button class="error-button btn btn-danger btn-lg" onClick={()=>this.setState({renderError:true})}>
+            <button className="error-button btn btn-danger btn-lg" onClick={()=>this.setState({renderError:true})}>
                 Throw error
             </button>
         )    
