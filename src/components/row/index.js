@@ -1,3 +1,3 @@
-import Row from './random-planet';
+import Row from './row';
 
 export default Row;
